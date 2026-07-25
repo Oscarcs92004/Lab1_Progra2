@@ -1,0 +1,40 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author oscar
+ */
+public class Ticket {
+
+    String nombre;
+    double montoFinal;
+    double montoInicio;
+    boolean esPalindromo;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public double getMontoFinal() {
+        return montoFinal;
+    }
+
+    public double getMontoInicio() {
+        return montoInicio;
+    }
+
+    public boolean isEsPalindromo() {
+        return esPalindromo;
+    }
+    
+    public void print(){
+        System.out.println("Nombre: "+this.nombre);
+        System.out.println("Monto pagado: "+this.montoFinal);
+        System.out.println("Monto original: "+this.montoInicio);
+        System.out.println("Aplico descuento por palindromo? "+(this.esPalindromo ? "Si":"No") );
+    }
+}
