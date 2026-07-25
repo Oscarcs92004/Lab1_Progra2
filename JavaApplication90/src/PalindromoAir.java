@@ -17,7 +17,7 @@ public class PalindromoAir {
         if (i >= 30) {
             return -1;
         }
-        if (asientos[i] != null && asientos[i].getNombre().equals(name)) {
+        if (asientos[i] != null && asientos[i].getNombre().equalsIgnoreCase(name)) {
             return i;
         }
         return searchPassenger(name, i + 1);
@@ -39,15 +39,26 @@ public class PalindromoAir {
         return false;
     }
 
-    public void printPassengers() {
+    public void printPassengers(int indice){
+        if(indice >= 30){
+            return;
+        }
+        if(asientos[indice] != null){
+            asientos[indice].print();
+        }
+        printPassengers(indice+1);
     }
 
     public double income() {
         return 0;
     }
 
-    public void reset() {
-
+    public void reset(int indice) {
+        if(indice >= 30){
+            return;
+        }
+        asientos[indice] = null;
+        reset(indice+1);
     }
 
     public void sellTicket() {
