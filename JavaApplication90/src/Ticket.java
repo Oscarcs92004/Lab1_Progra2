@@ -10,10 +10,10 @@
  */
 public class Ticket {
 
-    String nombre;
-    double montoFinal;
-    double montoInicio;
-    boolean esPalindromo;
+    private String nombre;
+    private double montoFinal;
+    private double montoInicio;
+    private boolean esPalindromo;
 
     public String getNombre() {
         return nombre;
