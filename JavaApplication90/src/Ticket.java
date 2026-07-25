@@ -15,6 +15,13 @@ public class Ticket {
     private double montoInicio;
     private boolean esPalindromo;
 
+    public Ticket(String nombre, double montoOriginal, double montoFinal, boolean palindromo) {
+        this.nombre = nombre;
+        this.montoInicio = montoOriginal;
+        this.montoFinal = montoFinal;
+        this.esPalindromo = palindromo;
+    }
+    
     public String getNombre() {
         return nombre;
     }
