@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -38,6 +39,7 @@ public class Principal extends JFrame implements MouseListener {
         botonAsientos = new JButton[30];
         for(int i = 0; i < 30; i++){
             botonAsientos[i] = new JButton(" "+(i+1));
+            botonAsientos[i].setBackground(Color.GREEN);
             panelAsientos.add(botonAsientos[i]);
         }
         add(panelAsientos,BorderLayout.CENTER);
