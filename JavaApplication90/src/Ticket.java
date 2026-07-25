@@ -21,7 +21,7 @@ public class Ticket {
         this.montoFinal = montoFinal;
         this.esPalindromo = palindromo;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -37,11 +37,11 @@ public class Ticket {
     public boolean isEsPalindromo() {
         return esPalindromo;
     }
-    
-    public void print(){
-        System.out.println("Nombre: "+this.nombre);
-        System.out.println("Monto pagado: "+this.montoFinal);
-        System.out.println("Monto original: "+this.montoInicio);
-        System.out.println("Aplico descuento por palindromo? "+(this.esPalindromo ? "Si":"No") );
+
+    public String print() {
+        return "Nombre: " + this.nombre
+                + "\nMonto pagado: " + this.montoFinal
+                + "\nMonto original: " + this.montoInicio
+                + "\nAplico descuento por palindromo? " + (this.esPalindromo ? "Si" : "No");
     }
 }

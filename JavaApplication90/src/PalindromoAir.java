@@ -39,14 +39,14 @@ public class PalindromoAir {
         return false;
     }
 
-    public void printPassengers(int indice){
+    public String printPassengers(int indice){
         if(indice >= 30){
-            return;
+            return " ";
         }
-        if(asientos[indice] != null){
-            asientos[indice].print();
+        if(asientos[indice] == null){
+            return printPassengers(indice+1);
         }
-        printPassengers(indice+1);
+        return asientos[indice].print() + "\n" + printPassengers(indice+1);
     }
 
     public double income(int indice, double total) {

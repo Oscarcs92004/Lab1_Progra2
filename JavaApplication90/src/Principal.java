@@ -121,6 +121,45 @@ public class Principal extends JFrame implements MouseListener {
             actualizarAsientos();
             textoMensajes.append("Se vendio un ticket a "+nombre+"\n");
         }
+        
+        if(e.getSource() == botonCancelar){
+            String nombre = textoNombre.getText();
+            
+            if(sistema.cancelTicket(nombre)){
+                textoMensajes.append("Ticket cancelado.\n");
+            } else {
+                textoMensajes.append("Pasajero no encontrado.\n");
+            }
+            actualizarAsientos();
+        }
+        
+        if(e.getSource() == botonBuscar){
+            String nombre = textoNombre.getText();
+            
+            int asiento = sistema.searchPassenger(nombre,0);
+            
+            if(asiento == -1){
+                textoMensajes.append("No existe el pasajero.\n");
+            } else {
+                textoMensajes.append(nombre +" esta en el asiento #" +(asiento+1)+"\n");
+            }
+        }
+        
+        if(e.getSource() == botonIngresos){
+            double total = sistema.income(0,0);
+            textoMensajes.append("Ingresos: L"+total+"\n");
+        }
+        
+        if(e.getSource() == botonDespachar){
+            double total = sistema.dispatch();
+            textoMensajes.append("Se despacho el avion \n");
+            textoMensajes.append("Ingrsos: L"+total+"\n");
+            actualizarAsientos();
+        }
+        
+        if(e.getSource() == botonImprimir){
+            textoMensajes.setText(sistema.printPassengers(0));
+        }
     }
 
     @Override
