@@ -31,6 +31,19 @@ public class Principal extends JFrame implements MouseListener {
     JButton botonIngresos;
     JButton botonBuscar;
     JTextArea textoMensajes;
+    PalindromoAir sistema;
+    
+    public void actualizarAsientos(){
+        Ticket[] asientos = sistema.getAsientos();
+        
+        for(int i = 0; i < 30; i++){
+            if(asientos[i] == null){
+                botonAsientos[i].setBackground(Color.GREEN);
+            } else {
+                botonAsientos[i].setBackground(Color.RED);
+            }
+        }
+    }
     
     public void crearTodo(){
         setLayout(new BorderLayout());
@@ -54,6 +67,13 @@ public class Principal extends JFrame implements MouseListener {
         botonIngresos = new JButton("Imprimir Ingresos");
         botonBuscar = new JButton("Buscar Pasajero");
         
+        botonVender.addMouseListener(this);
+        botonCancelar.addMouseListener(this);
+        botonDespachar.addMouseListener(this);
+        botonImprimir.addMouseListener(this);
+        botonIngresos.addMouseListener(this);
+        botonBuscar.addMouseListener(this);
+        
         panelOpciones.add(new JLabel("Nombre pasajero"));
         panelOpciones.add(textoNombre);
         panelOpciones.add(botonVender);
@@ -74,6 +94,9 @@ public class Principal extends JFrame implements MouseListener {
     
     public Principal(){
         super("Sistema de Boletos");
+        
+        sistema = new PalindromoAir();
+        
         setSize(1100, 700);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -92,6 +115,12 @@ public class Principal extends JFrame implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
+        if(e.getSource() == botonVender){
+            String nombre = textoNombre.getText();
+            sistema.sellTicket(nombre);
+            actualizarAsientos();
+            textoMensajes.append("Se vendio un ticket a "+nombre+"\n");
+        }
     }
 
     @Override
